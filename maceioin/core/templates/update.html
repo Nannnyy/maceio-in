@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    {{ pessoa.id}} - {{ pessoa.nome }}
+
+    <form action="{% url 'atualizar' pessoa.id %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="nome" value="{{pessoa.nome}}">
+        <input type="email" name="email" value="{{pessoa.email}}">
+        <select name="setor" id="">
+            <option value="Contabilidade">Contabilidade</option>
+            <option value="Financeiro">Financeiro</option>
+            <option value="TI">TI</option>
+        </select>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
