@@ -1,3 +1,44 @@
+
+.section_add_button {
+    display: flex;
+    justify-content: center;
+}
+
+.container_add_button {
+    margin-top: 1.5%;
+    padding: 15px;
+
+    width: 80%;
+    height: auto;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add_button {
+
+    width: 145px;
+    height: 40px;
+
+    font-family: "Inter", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+
+    text-decoration: none;
+
+    color: #FFFFFF;
+    background: #f58428;
+
+    border: none;
+    border-radius: 5px;
+}
+
+.add_button:hover {
+    background: #de8c48;
+    cursor: pointer;
+}
+
 .container_table {
     width: 80%;
     margin: 20px auto;
@@ -31,12 +72,6 @@ td {
     text-align: center;
 }
 
-
-/* tbody tr:hover {
-    background: #d1d1d1;
-    cursor: pointer;
-} */
-
 td {
     font-size: 16px;
     text-align: center;
@@ -51,8 +86,9 @@ td {
 }
 
 .container_button a {
-    width: 25%;
-    height: 38px;
+
+    width: 30%;
+    height: 40px;
 
     text-align: center;
     text-decoration: none;
@@ -61,7 +97,7 @@ td {
     font-size: 16px;
     color: #EDF1F6;
 
-    background: #14467C;
+    background: #1351B4;
 
     border: none;
     border-radius: 5px;

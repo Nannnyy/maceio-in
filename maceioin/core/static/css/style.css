@@ -74,6 +74,8 @@ body {
     gap: 1.5%;
 
     background-color: #f58428;
+
+    border-radius: 5px;
 }
 
 .container_location svg {

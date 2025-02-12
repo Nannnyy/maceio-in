@@ -1,13 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funcionários</title>
+    <title>MaceioIn | Funcionários</title>
 
 
-    <link rel="stylesheet" href="{% static 'css/funcionario_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/funcionario.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,12 +24,19 @@
     </header>
 
     <nav class="navbar">
-        <a class="navbar_text" href="{% url 'home' %}">HOME</a>
+        <a class="navbar_text" href="{% url 'home' %}">INÍCIO</a>
         <a class="navbar_text" href="{% url 'listar'%}">FUNCIONÁRIOS</a>
     </nav>
 
     <main>
-        <section>`
+        <section class="section_add_button">
+            <div class="container_add_button">
+                <a class="add_button" href="{% url 'adicionar' %}">Adicionar</a>
+            </div>
+        </section>
+
+        <section>
+
             <div class="container_table">
                 <table class="">
     
