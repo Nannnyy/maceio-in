@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atualizar Funcionário</title>
+
+    <link rel="stylesheet" href="{% static 'css/update_funcionario.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <img src="/maceioin/core/static/logo_prefeitura_de_maceio.svg" alt="">
+            <img src="/maceioin/core/static/maceio_topo.svg" alt="">
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <a class="navbar_text" href="{% url 'home' %}">HOME</a>
+        <a class="navbar_text" href="{% url 'listar'%}">FUNCIONÁRIOS</a>
+    </nav>
+
+    <main>
+        <section>
+            <h1>Editar Funcionário</h1>
+
+        </section>
+
+
+        <section>
+
+            <form action="{% url 'atualizar' funcionario.id %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="nome" value="{{ funcionario.nome }}">
+                <input type="email" name="email" value="{{ funcionario.email }}">
+                <select name="setor" id="">
+                    <option value="Contabilidade" {% if funcionario.setor == "Contabilidade" %}selected{% endif %}>Contabilidade</option>
+                    <option value="Financeiro" {% if funcionario.setor == "Financeiro" %}selected{% endif %}>Financeiro</option>
+                    <option value="Atendimento" {% if funcionario.setor == "Atendimento" %}selected{% endif %}>Atendimento</option>
+                    <option value="TI" {% if funcionario.setor == "TI" %}selected{% endif %}>TI</option>
+                </select>
+            
+                <button type="submit">Salvar</button>
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

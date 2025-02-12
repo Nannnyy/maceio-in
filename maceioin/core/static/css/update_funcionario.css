@@ -1,0 +1,14 @@
+
+form {
+
+    margin: 0 132px;
+    padding: 15px;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+input {
+    display: block;
+}

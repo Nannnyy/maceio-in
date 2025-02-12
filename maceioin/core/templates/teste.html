@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+    <!-- READ -->
+    <u>
+        {% for pessoa in pessoas %}
+            <li>{{pessoa.id}} - {{pessoa.nome}} 
+            <a href="{% url 'editar' pessoa.id %}">Editar</a></li>
+            <a href="{% url 'deletar' pessoa.id %}">Excluir</a>
+        {% endfor %}
+    </u>
+
+    <!-- CREATE -->
+    <form action="{% url 'cadastrar' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="nome">
+        <input type="email" name="email">
+        <select name="setor" id="">
+            <option value="Contabilidade">Contabilidade</option>
+            <option value="Financeiro">Financeiro</option>
+            <option value="TI">TI</option>
+        </select>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

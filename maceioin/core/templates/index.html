@@ -1,32 +1,86 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MaceioIn</title>
+    <!-- <link rel="stylesheet" href="/maceioin/core/static/css/style.css"> -->
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <header class="header">
+        <div class="container">
+            <img src="/maceioin/core/static/logo_prefeitura_de_maceio.svg" alt="">
+            <img src="/maceioin/core/static/maceio_topo.svg" alt="">
+        </div>
+    </header>
 
-    <!-- READ -->
-    <u>
-        {% for pessoa in pessoas %}
-            <li>{{pessoa.id}} - {{pessoa.nome}} 
-            <a href="{% url 'editar' pessoa.id %}">Editar</a></li>
-            <a href="{% url 'deletar' pessoa.id %}">Excluir</a>
-        {% endfor %}
-    </u>
+    <nav class="navbar">
+        <a class="navbar_text" href="{% url 'home' %}">HOME</a>
+        <a class="navbar_text" href="{% url 'listar'%}">FUNCIONÁRIOS</a>
+    </nav>
 
-    <!-- CREATE -->
-    <form action="{% url 'cadastrar' %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="nome">
-        <input type="email" name="email">
-        <select name="setor" id="">
-            <option value="Contabilidade">Contabilidade</option>
-            <option value="Financeiro">Financeiro</option>
-            <option value="TI">TI</option>
-        </select>
-        <button type="submit">Enviar</button>
-    </form>
+    <main>
+
+        <section class="description">
+            <div class="container_description">
+                <h1>Secretaria Municipal de Fazenda</h1>
+                <p>Planeja e executa as políticas fiscais, tributárias, orçamentárias e financeiras de competência do
+                    Município, arrecada os tributos municipais e atua nas inclusões, imunidades, isenções, arbitramento,
+                    revisões e outros casos que exigem interpretações da legislação. É responsável por organizar o
+                    calendário fiscal e orçamentário do município. Também atua no planejamento de políticas públicas e
+                    medidas de desburocratização fiscal voltadas ao desenvolvimento econômico.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container_services">
+                <h1>Principais Atividades</h1>
+                <ul>
+                    <li>Arrecadar os tributos municipais</li>
+                    <li>Organizar o calendário fiscal e orçamentário</li>
+                    <li>Planejar políticas públicas e medidas de desburocratização fiscal</li>
+                    <li>Formular, executar e avaliar as políticas e diretrizes para a modernização do sistema de gestão
+                        tributária</li>
+                    <li>Controlar e avaliar as transferências constitucionais recebidas pelo Município</li>
+                    <li>Planejar as atividades referentes ao lançamento, cobrança, arrecadação e controle dos impostos
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="location">
+            <div class="container_location">
+
+                <svg xmlns="http://www.w3.org/2000/svg" height="34" width="34"
+                    viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                    <path fill="#ffffff"
+                        d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                </svg>
+                <div class="container_location_text">
+                    <p>
+                        <strong>Secretaria Municipal de Fazenda</strong> <br>
+                        Rua Pedro Monteiro, 47 - Centro - Maceió/AL - CEP: 57020-380 <br>
+                        Central de Atendimento ao Contribuinte: atendimento@sefaz.maceio.al.gov.br <br>
+                        Horário de atendimento: segunda a sexta, das 8h às 14h (Somente com agendamento)
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer></footer>
+
 </body>
+
 </html>
