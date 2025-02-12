@@ -26,28 +26,38 @@
     </nav>
 
     <main>
-        <section>
+        <section class="funcionario_description">
             <h1>Editar Funcionário</h1>
-
         </section>
 
+        <section class="section_form">
 
-        <section>
+            <div class="container_form">
+                <form action="{% url 'atualizar' funcionario.id %}" method="post">
+                    {% csrf_token %}
 
-            <form action="{% url 'atualizar' funcionario.id %}" method="post">
-                {% csrf_token %}
-                <input type="text" name="nome" value="{{ funcionario.nome }}">
-                <input type="email" name="email" value="{{ funcionario.email }}">
-                <select name="setor" id="">
-                    <option value="Contabilidade" {% if funcionario.setor == "Contabilidade" %}selected{% endif %}>Contabilidade</option>
-                    <option value="Financeiro" {% if funcionario.setor == "Financeiro" %}selected{% endif %}>Financeiro</option>
-                    <option value="Atendimento" {% if funcionario.setor == "Atendimento" %}selected{% endif %}>Atendimento</option>
-                    <option value="TI" {% if funcionario.setor == "TI" %}selected{% endif %}>TI</option>
-                </select>
-            
-                <button type="submit">Salvar</button>
-            </form>
+                    <label for="">Nome Completo:</label>
+                    <input type="text" name="nome" value="{{ funcionario.nome }}"> <br>
 
+
+                    <label for="">Email:</label>
+                    <input type="email" name="email" value="{{ funcionario.email }}"> <br>
+
+
+                    <label for="">Setor:</label> <br>
+                    <select name="setor" id="">
+                        <option value="Contabilidade" {% if funcionario.setor == "Contabilidade" %}selected{% endif %}>Contabilidade</option>
+                        <option value="Financeiro" {% if funcionario.setor == "Financeiro" %}selected{% endif %}>Financeiro</option>
+                        <option value="Atendimento" {% if funcionario.setor == "Atendimento" %}selected{% endif %}>Atendimento</option>
+                        <option value="TI" {% if funcionario.setor == "TI" %}selected{% endif %}>TI</option>
+                    </select>
+
+                    <div class="containter_submit_button">
+                        <button class="submit_button" type="submit">Salvar</button>
+                    </div>
+
+                </form>
+            </div>
         </section>
 
     </main>
