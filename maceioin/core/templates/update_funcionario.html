@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MaceioIn | Edição de Funcionário</title>
+    <title>Maceio IN  | Edição de Funcionário</title>
 
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
 
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +20,8 @@
 
     <header class="header">
         <div class="container">
-            <img src="/maceioin/core/static/logo_prefeitura_de_maceio.svg" alt="">
-            <img src="/maceioin/core/static/maceio_topo.svg" alt="">
+            <img src="{% static 'assets/logo_prefeitura_de_maceio.svg' %}" alt="">
+            <img src="{% static 'assets/maceio_topo.svg' %}" alt="">
         </div>
     </header>
 
@@ -38,32 +38,40 @@
         <section class="section_form">
 
             <div class="container_form">
+
                 <form action="{% url 'atualizar' funcionario.id %}" method="post">
                     {% csrf_token %}
+                
+                    <div class="form_input">
+                        <label for="">Nome Completo:</label>
+                        <br>
+                        <input type="text" name="nome" value="{{ funcionario.nome }}"> 
+                        <br>
+    
+                        <label for="">Email:</label>
+                        <br>
+                        <input type="email" name="email" value="{{ funcionario.email }}"> 
+                        <br>
+    
+                        <label for="">Setor:</label> 
+                        <br>
+                        <select name="setor" id="">
+                            <option value="Contabilidade" {% if funcionario.setor == "Contabilidade" %}selected{% endif %}>Contabilidade</option>
+                            <option value="Financeiro" {% if funcionario.setor == "Financeiro" %}selected{% endif %}>Financeiro</option>
+                            <option value="Atendimento" {% if funcionario.setor == "Atendimento" %}selected{% endif %}>Atendimento</option>
+                            <option value="Orçamento" {% if funcionario.setor == "Orçamento" %}selected{% endif %}>Orçamento</option>
+                            <option value="TI" {% if funcionario.setor == "TI" %}selected{% endif %}>TI</option>
+                        </select>
+                    </div>
 
-                    <label for="">Nome Completo:</label>
-                    <input type="text" name="nome" value="{{ funcionario.nome }}"> <br>
-
-
-                    <label for="">Email:</label>
-                    <input type="email" name="email" value="{{ funcionario.email }}"> <br>
-
-
-                    <label for="">Setor:</label> <br>
-                    <select name="setor" id="">
-                        <option value="Contabilidade" {% if funcionario.setor == "Contabilidade" %}selected{% endif %}>Contabilidade</option>
-                        <option value="Financeiro" {% if funcionario.setor == "Financeiro" %}selected{% endif %}>Financeiro</option>
-                        <option value="Atendimento" {% if funcionario.setor == "Atendimento" %}selected{% endif %}>Atendimento</option>
-                        <option value="Orçamento" {% if funcionario.setor == "Orçamento" %}selected{% endif %}>Orçamento</option>
-                        <option value="TI" {% if funcionario.setor == "TI" %}selected{% endif %}>TI</option>
-                    </select>
-
-                    <div class="containter_submit_button">
-                        <button class="submit_button" type="submit">Salvar</button>
+                    <div class="container_submit_button">
+                        <button type="submit">Salvar</button>
                     </div>
 
                 </form>
+
             </div>
+
         </section>
 
     </main>

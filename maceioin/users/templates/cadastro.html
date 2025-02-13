@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maceio IN  | Cadastro de Usuário</title>
+
+    <link rel="stylesheet" href="{% static '/css/inicio.css' %}">
+    <link rel="stylesheet" href="{% static '/css/user.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <a class="navbar_text" href="{% url 'home' %}">INÍCIO</a>
+        <a class="navbar_text" href="{% url 'listar'%}">FUNCIONÁRIOS</a>
+    </nav>
+
+    <main>
+        <section class="title_user">
+            <h1 class="title_user">Junte-se ao <span>Maceio IN</span></h1>
+        </section>
+
+        <section>
+
+            <div class="container_form_user">
+
+                <form action="{% url 'cadastro' %}" method="POST">
+                    {% csrf_token %}
+
+                    <div class="form_logo_user">
+                        <img src="{% static 'assets/logo_prefeitura_de_maceio.svg' %}" alt="Logo Prefeitura">
+                    </div>
+
+                    <div class="form_input_user">
+
+                        <label for="">Usuário: </label>
+                        <br>
+                        <input type="text" placeholder="Digite seu nome de usuário" name="username">
+                        <br>
+                
+                        <label for="">E-mail:</label>
+                        <br>
+                        <input type="email" placeholder="Digite seu e-mail", name="email">
+                        <br>
+                        
+                        <label for="">Senha:</label>
+                        <br>
+                        <input type="password" placeholder="Digite sua senha atual" name="password">
+                        <br>
+                    </div>
+
+                    <div class="container_button_user">
+                        <button type="submit" value="cadastrar">Cadastre-se</button>
+                    </div>
+
+                    <div class="form_aviso_cadastro_user">
+                        <p>
+                            Já possui uma conta? <a href="{% url 'login' %}">Conecte-se aqui!</a>
+                        </p>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+</body>
+</html>

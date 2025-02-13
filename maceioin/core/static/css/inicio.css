@@ -31,7 +31,7 @@ body {
 }
 
 .navbar_text {
-    align-content: center;
+    text-align: center;
 
     font-family: "Inter", Helvetica, Arial, sans-serif;
     font-weight: bold;
@@ -89,3 +89,4 @@ body {
     line-height: 1.7em;
     color: #FFFFFF;
 }
+

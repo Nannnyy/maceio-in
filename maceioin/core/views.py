@@ -1,16 +1,28 @@
 
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .models import Funcionario
+
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'index.html')
 
+
+@login_required(login_url='auth/login')
+def perfil(request):
+    return render(request, 'perfil.html')
+
+
+@login_required(login_url="/auth/login")
 def listar(request):
     funcionarios = Funcionario.objects.all()
     return render(request, 'funcionarios.html', {"funcionarios": funcionarios})
-
+    
+    
 def adicionar(request):
     return render(request, 'cadastrar_funcionario.html')
+
 
 def cadastrar(request):
     nome = request.POST.get('nome')
@@ -22,10 +34,12 @@ def cadastrar(request):
     funcionario.save()
     return redirect(listar)
 
+
 def editar(request, id):
     # pegar usuario do banco
     funcionario = Funcionario.objects.get(id=id)
     return render(request, 'update_funcionario.html', {'funcionario' : funcionario})
+
 
 def atualizar(request, id):
     if request.method == "POST":
@@ -43,8 +57,8 @@ def atualizar(request, id):
         
     return redirect(listar)
 
+
 def deletar(request, id):
     pessoa = Funcionario.objects.get(id=id)
     pessoa.delete()
     return redirect(listar)
-
