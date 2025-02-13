@@ -25,14 +25,14 @@ body {
 
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20%;
 
     background-color: #14467C;
+
 }
 
 .navbar_text {
-    text-align: center;
-
     font-family: "Inter", Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-size: 18px;
@@ -41,6 +41,23 @@ body {
     text-decoration: none;
     list-style: none;
 }
+
+.navbar_text_user {
+    width: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar_link_user {
+    color: gray;
+    text-decoration: none;
+}
+
+main {
+    width: 70%;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
 
 .container_description {
     margin: 0 132px;

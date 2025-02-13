@@ -2,16 +2,19 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .models import Funcionario
+from django.contrib.auth import logout
 
+
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'index.html')
 
 
-@login_required(login_url='auth/login')
+@login_required(login_url="/auth/login")
 def perfil(request):
-    return render(request, 'perfil.html')
+    return render(request, 'perfil.html', {'user': request.user})
 
 
 @login_required(login_url="/auth/login")
@@ -62,3 +65,8 @@ def deletar(request, id):
     pessoa = Funcionario.objects.get(id=id)
     pessoa.delete()
     return redirect(listar)
+
+
+def custom_logout(request):
+    logout(request)
+    return redirect(home)  # Redireciona para a página inicial

@@ -38,7 +38,3 @@ def login(request):
         else:
             return HttpResponse('Eamil ou senha invalido')
     return render(request, 'login.html')
-
-
-def perfil(request):
-    return HttpResponse('perfil')
