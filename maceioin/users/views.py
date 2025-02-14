@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as auth_login
-from django.contrib import messages  # Certifique-se de que isso está importado
+from django.contrib import messages 
 from core.views import home as core_home
 
 
@@ -24,7 +24,7 @@ def cadastro(request):
         user.save()
 
         messages.success(request, "Cadastro realizado com sucesso! Faça login.")
-        return redirect("login")  # Redireciona para a tela de login
+        return redirect("login") 
 
     return render(request, 'cadastro.html')
 

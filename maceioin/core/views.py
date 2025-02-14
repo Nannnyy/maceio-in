@@ -1,12 +1,10 @@
 
-from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from .models import Funcionario
 from django.contrib.auth import logout
-
-
-from django.contrib.auth.models import User
+from django.contrib import messages 
 from django.contrib.auth.decorators import login_required
+
 
 def home(request):
     return render(request, 'index.html')
@@ -32,14 +30,17 @@ def cadastrar(request):
     email = request.POST.get('email')
     setor = request.POST.get('setor')
     
-    funcionario = Funcionario.objects.create(nome=nome, email=email, setor=setor)
+    # Verificação de campos obrigatórios
+    if not nome or not email or not setor:
+        messages.error(request, "Preencha todos os campos!")
+        return render(request, 'cadastrar_funcionario.html')
     
+    funcionario = Funcionario.objects.create(nome=nome, email=email, setor=setor)
     funcionario.save()
     return redirect(listar)
 
 
 def editar(request, id):
-    # pegar usuario do banco
     funcionario = Funcionario.objects.get(id=id)
     return render(request, 'update_funcionario.html', {'funcionario' : funcionario})
 
@@ -51,6 +52,10 @@ def atualizar(request, id):
         nome = request.POST.get('nome')
         email = request.POST.get('email')
         setor = request.POST.get('setor')
+        
+        if not nome or not email or not setor:
+            messages.error(request, "Preencha todos os campos!")
+            return render(request, 'update_funcionario.html', {'funcionario' : funcionario})
         
         funcionario.nome = nome
         funcionario.email = email
