@@ -19,7 +19,6 @@ def cadastro(request):
             messages.error(request, "Usuário já existe!")
             return render(request, 'cadastro.html')
         
-                # Criando usuário
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
 

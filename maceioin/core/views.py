@@ -29,8 +29,7 @@ def cadastrar(request):
     nome = request.POST.get('nome')
     email = request.POST.get('email')
     setor = request.POST.get('setor')
-    
-    # Verificação de campos obrigatórios
+
     if not nome or not email or not setor:
         messages.error(request, "Preencha todos os campos!")
         return render(request, 'cadastrar_funcionario.html')
@@ -74,4 +73,4 @@ def deletar(request, id):
 
 def custom_logout(request):
     logout(request)
-    return redirect(home)  # Redireciona para a página inicial
+    return redirect(home)

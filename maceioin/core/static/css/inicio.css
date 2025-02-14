@@ -58,10 +58,10 @@ body {
 }
 
 main {
-    min-height: 90vh; /* Corrigido de "hv" para "vh" */
-    flex: 1; /* Permite que o main ocupe todo o espaço disponível */
+    min-height: 90vh;
+    flex: 1; 
     width: 70%;
-    margin: 0 auto; /* Centraliza horizontalmente */
+    margin: 0 auto;
 }
 
 
@@ -104,7 +104,6 @@ main {
 
 .container_location svg {
     margin-top: 1%;
-    /* Ajuste conforme necessário */
 }
 
 
