@@ -78,6 +78,10 @@ td {
 }
 
 .container_button {
+    margin: 3% 0;
+    padding-left: 40px;
+
+    width: 90%;
     display: flex;
     justify-content: center;
     gap: 5%;
