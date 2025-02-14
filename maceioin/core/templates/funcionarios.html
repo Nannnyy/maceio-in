@@ -1,10 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maceio IN  | Funcionários</title>
+    <title>Maceio IN | Funcionários</title>
 
 
     <link rel="stylesheet" href="{% static 'css/funcionario.css' %}">
@@ -12,10 +13,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+
     <header class="header">
         <div class="container">
             <img src="{% static 'assets/logo_prefeitura_de_maceio.svg' %}" alt="">
@@ -43,7 +47,7 @@
         {% endif %}
 
     </nav>
-    
+
     <main>
         <section class="section_add_button">
             <div class="container_add_button">
@@ -55,7 +59,7 @@
 
             <div class="container_table">
                 <table class="">
-    
+
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -65,30 +69,62 @@
                             <th>AÇÕES</th>
                         </tr>
                     </thead>
-    
+
                     <tbody>
                         {% for funcionario in funcionarios %}
-                            <tr>
-                                <td>{{ funcionario.id }}</td>
-                                <td>{{ funcionario.nome }}</td>
-                                <td>{{ funcionario.email }}</td>
-                                <td>{{ funcionario.setor }}</td>
-                                <td>
-                                    <div class="container_button">
-                                        <a href="{% url 'editar' funcionario.id %}">Editar</a>
-                                        <a href="{% url 'deletar' funcionario.id %}">Excluir</a>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>{{ funcionario.id }}</td>
+                            <td>{{ funcionario.nome }}</td>
+                            <td>{{ funcionario.email }}</td>
+                            <td>{{ funcionario.setor }}</td>
+                            <td>
+                                <div class="container_button">
+                                    <a href="{% url 'editar' funcionario.id %}">Editar</a>
+                                    <a href="{% url 'deletar' funcionario.id %}">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
                         {% endfor %}
                     </tbody>
-    
+
                 </table>
             </div>
         </section>
     </main>
 
-    <footer></footer>
+    <footer>
+        <img class="footer_topo" src="{% static 'assets/maceio_topo.svg' %}" alt="">
+
+        <div>
+            <div class="footer_informacoes">
+                <img src="{% static 'assets/logo_prefeitura_de_maceio.svg' %}" alt="">
+                <div>
+                    <a href="https://www.facebook.com/PrefeituraDeMaceio">
+                        <img src="{% static 'assets/icone_facebook.svg' %}" alt="">
+                    </a>
+
+                    <a href="https://www.instagram.com/prefeiturademaceio/">
+                        <img src="{% static 'assets/icone_instagram.svg' %}" alt="">
+                    </a>
+
+                    <a href="https://x.com/prefmaceio?mx=2">
+                        <img src="{% static 'assets/icone_twitter.svg' %}" alt="">
+                    </a>
+
+                    <a href="https://www.youtube.com/prefeiturademaceio">
+                        <img src="{% static 'assets/icone_youtube.svg' %}" alt="">
+                    </a>
+
+                    <a
+                        href="https://open.spotify.com/show/0mt6diG4KRQvi0mMidl7NN?si=T6sh89cQRAKVk5sT3glY-g&nd=1&dlsi=57211e5a875647f5">
+                        <img src="{% static 'assets/icone_spotify.svg' %}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
 
 </body>
+
 </html>

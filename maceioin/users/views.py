@@ -36,5 +36,6 @@ def login(request):
             
             return redirect(core_home)
         else:
+            # Eu quero mudar isso aqui
             return HttpResponse('Eamil ou senha invalido')
     return render(request, 'login.html')
